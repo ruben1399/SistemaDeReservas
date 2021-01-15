@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Cliente;
+import models.Juego;
 import models.Reserva;
 
 public class ReservaController {
@@ -81,8 +82,8 @@ public class ReservaController {
 			while (rs.next()) {
 				int Id_Reserva = rs.getInt(1);
 				String Horas = rs.getString(2);
-				Object DNI = rs.getObject(3);
-				Object Id_Juego = rs.getObject(4);
+				Cliente DNI = (Cliente) rs.getObject(3);
+				Juego Id_Juego = (Juego) rs.getObject(4);
 				lReserva.add(new Reserva(Id_Reserva, Horas, DNI, Id_Juego));
 			}
 			stm.close();

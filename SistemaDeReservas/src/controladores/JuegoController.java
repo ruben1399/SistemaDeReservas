@@ -85,10 +85,10 @@ public class JuegoController {
 			while (rs.next()) {
 				int Id_Juego = rs.getInt(1);
 				String Nombre = rs.getString(2);
-				Object oTarifa = rs.getObject(3);
-				Object oHorario = rs.getObject(4);
-				Object oTematica = rs.getObject(5);
-				lJuego.add(new Juego(Id_Juego, Nombre, oTarifa, oHorario, oTematica));
+				Tarifa oTarifa = (Tarifa) rs.getObject(3);
+				Horario oHorario = (Horario) rs.getObject(4);
+				Tematica oTematica = (Tematica) rs.getObject(5);
+				lJuego.add(new Juego(Id_Juego, Nombre, oHorario, oTematica, oTarifa));
 			}
 			stm.close();
 		} catch (SQLException e) {
