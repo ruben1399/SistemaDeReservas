@@ -1,12 +1,12 @@
 package models;
 
-public class Reserva {
+public class Reserva implements iReserva {
 	private int Id_Reserva;
 	private String Horas;
-	private Cliente oCliente;
-	private Juego oJuego;
+	private iCliente oCliente;
+	private iJuego oJuego;
 
-	public Reserva(int id_Reserva, String horas, Cliente oCliente, Juego oJuego) {
+	public Reserva(int id_Reserva, String horas, iCliente oCliente, iJuego oJuego) {
 		setId_Reserva(id_Reserva);
 		setHoras(horas);
 		setoCliente(oCliente);
@@ -23,6 +23,7 @@ public class Reserva {
 		setHoras(horas);
 
 	}
+	@Override
 	public boolean validaReserva() {
 		boolean bExito = false;
 		if (this.Id_Reserva < 0 && this.Horas != null && oCliente.getDNI() != null && this.oJuego.getId_Juego() < 0) {
@@ -31,6 +32,7 @@ public class Reserva {
 		return bExito;
 	}
 
+	@Override
 	public int getId_Reserva() {
 		return Id_Reserva;
 	}
@@ -44,10 +46,12 @@ public class Reserva {
 		return bExito;
 	}
 
+	@Override
 	public String getHoras() {
 		return Horas;
 	}
 
+	@Override
 	public boolean setHoras(String horas) {
 		boolean bExito = false;
 		if (horas.length() == 5) {
@@ -58,19 +62,23 @@ public class Reserva {
 
 	}
 
-	public Cliente getoCliente() {
+	@Override
+	public iCliente getoCliente() {
 		return oCliente;
 	}
 
-	public void setoCliente(Cliente oCliente) {
+	@Override
+	public void setoCliente(iCliente oCliente) {
 		this.oCliente = oCliente;
 	}
 
-	public Juego getoJuego() {
+	@Override
+	public iJuego getoJuego() {
 		return oJuego;
 	}
 
-	public void setoJuego(Juego oJuego) {
+	@Override
+	public void setoJuego(iJuego oJuego) {
 		this.oJuego = oJuego;
 	}
 

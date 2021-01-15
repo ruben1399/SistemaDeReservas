@@ -1,6 +1,6 @@
 package models;
 
-public class Horario {
+public class Horario implements iHorario {
 	private int Id_Horario;
 	private String Hora;
 
@@ -13,6 +13,7 @@ public class Horario {
 		Id_Horario = id_Horario;
 	}
 
+	@Override
 	public int getId_Horario() {
 		return Id_Horario;
 	}
@@ -26,10 +27,12 @@ public class Horario {
 		return bExito;
 	}
 
+	@Override
 	public String getHora() {
 		return Hora;
 	}
 
+	@Override
 	public boolean setHora(String hora) {
 		boolean bExito = false;
 		if (hora.length() == 5) {
@@ -41,6 +44,7 @@ public class Horario {
 	}
 	
 	
+	@Override
 	public boolean validaHorario() {
 		boolean bExito = false;
 		if (this.Id_Horario < 0 && this.Hora != null ) {

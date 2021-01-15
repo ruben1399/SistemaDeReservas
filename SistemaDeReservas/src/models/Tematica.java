@@ -1,6 +1,6 @@
 package models;
 
-public class Tematica {
+public class Tematica implements iTematica {
 	private int Id_Temat;
 	private String Nombre;
 	private String Descripcion;
@@ -20,6 +20,7 @@ public class Tematica {
 		setId_Temat(id_Temat);
 	}
 
+	@Override
 	public int getId_Temat() {
 		return Id_Temat;
 	}
@@ -33,10 +34,12 @@ public class Tematica {
 		return bExito;
 	}
 
+	@Override
 	public String getNombre() {
 		return Nombre;
 	}
 
+	@Override
 	public boolean setNombre(String nombre) {
 		boolean bExito = false;
 		if (Nombre.length() <= 30 && Nombre.length() >= 0) {
@@ -46,10 +49,12 @@ public class Tematica {
 		return bExito;
 	}
 
+	@Override
 	public String getDescripcion() {
 		return Descripcion;
 	}
 
+	@Override
 	public boolean setDescripcion(String descripcion) {
 		boolean bExito = false;
 		if (Descripcion.length() <= 250 && Descripcion.length() >= 0) {
@@ -59,6 +64,7 @@ public class Tematica {
 		return bExito;
 	}
 
+	@Override
 	public boolean validaTematica() {
 		boolean bExito = false;
 		if (this.Id_Temat < 0 && this.Nombre != null ) {

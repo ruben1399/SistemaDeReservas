@@ -1,6 +1,6 @@
 package models;
 
-public class Tarifa {
+public class Tarifa implements iTarifa {
 	private int Id_Tarifa;
 	private int Precio;
 
@@ -13,6 +13,7 @@ public class Tarifa {
 		setId_Tarifa(id_Tarifa);
 	}
 
+	@Override
 	public int getId_Tarifa() {
 		return Id_Tarifa;
 	}
@@ -26,9 +27,11 @@ public class Tarifa {
 		return bExito;
 	}
 
+	@Override
 	public int getPrecio() {
 		return Precio;
 	}
+	@Override
 	public boolean validaTarifa() {
 		boolean bExito = false;
 		if (this.Id_Tarifa < 0 && this.Precio < 0 ) {
@@ -36,6 +39,7 @@ public class Tarifa {
 		}
 		return bExito;
 	}
+	@Override
 	public boolean setPrecio(int precio) {
 		boolean bExito = false;
 		if (precio > 0 && precio < 120) {

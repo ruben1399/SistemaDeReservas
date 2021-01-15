@@ -2,46 +2,51 @@ package controladores;
 
 import controladores.ConexionDB;
 
-public class GeneralController {
-	private ClienteController cctrl;
-	private TarifaController tfctrl;
-	private HorarioController hrctrl;
-	private TematicaController tmctrl;
-	private ReservaController rsctrl;
-private JuegoController jctrl;
+public class GeneralController implements iGeneralController {
+	private iClienteController cctrl;
+	private iTarifaController tfctrl;
+	private iHorarioController hrctrl;
+	private iTematicaController tmctrl;
+	private iReservaController rsctrl;
+	private iJuegoController jctrl;
+
 	public GeneralController(String sDatabase) {
 		cctrl = new ClienteController();
 		tfctrl = new TarifaController();
 		hrctrl = new HorarioController();
 		tmctrl = new TematicaController();
 		jctrl = new JuegoController();
-		rsctrl= new ReservaController();
+		rsctrl = new ReservaController();
 		new ConexionDB(sDatabase);
 	}
 
-	public ReservaController getRsctrl() {
+	@Override
+	public iReservaController getRsctrl() {
 		return rsctrl;
 	}
 
-	public JuegoController getJctrl() {
+	@Override
+	public iJuegoController getJctrl() {
 		return jctrl;
 	}
 
-	public TematicaController getTmctrl() {
+	@Override
+	public iTematicaController getTmctrl() {
 		return tmctrl;
 	}
 
-
-
-	public HorarioController getHrctrl() {
+	@Override
+	public iHorarioController getHrctrl() {
 		return hrctrl;
 	}
 
-	public ClienteController getCctrl() {
+	@Override
+	public iClienteController getCctrl() {
 		return cctrl;
 	}
 
-	public TarifaController getTfctrl() {
+	@Override
+	public iTarifaController getTfctrl() {
 		return tfctrl;
 	}
 

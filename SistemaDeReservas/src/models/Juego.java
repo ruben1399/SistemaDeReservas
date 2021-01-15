@@ -1,13 +1,13 @@
 package models;
 
-public class Juego {
+public class Juego implements iJuego {
 	private int Id_Juego;
 	private String Nombre;
-	private Horario oHorario;
-	private Tematica oTematica;
-	private Tarifa oTarifa;
+	private iHorario oHorario;
+	private iTematica oTematica;
+	private iTarifa oTarifa;
 
-	public Juego(int id_Juego, String nombre, Horario oHorario, Tematica oTematica, Tarifa oTarifa) {
+	public Juego(int id_Juego, String nombre, iHorario oHorario, iTematica oTematica, iTarifa oTarifa) {
 		setId_Juego(id_Juego);
 		setNombre(nombre);
 		setoHorario(oHorario);
@@ -26,10 +26,12 @@ public class Juego {
 
 	
 
+	@Override
 	public int getId_Juego() {
 		return Id_Juego;
 	}
 
+	@Override
 	public boolean setId_Juego(int id_Juego) {
 		boolean bExito = false;
 		if (id_Juego <= 999) {
@@ -39,10 +41,12 @@ public class Juego {
 		return bExito;
 	}
 
+	@Override
 	public String getNombre() {
 		return Nombre;
 	}
 
+	@Override
 	public boolean setNombre(String nombre) {
 		boolean bExito = false;
 		if (nombre.length() == 30) {
@@ -52,30 +56,37 @@ public class Juego {
 		return bExito;
 	}
 
-	public Horario getoHorario() {
+	@Override
+	public iHorario getoHorario() {
 		return oHorario;
 	}
 
-	public void setoHorario(Horario oHorario) {
+	@Override
+	public void setoHorario(iHorario oHorario) {
 		this.oHorario = oHorario;
 	}
 
-	public Tematica getoTematica() {
+	@Override
+	public iTematica getoTematica() {
 		return oTematica;
 	}
 
-	public void setoTematica(Tematica oTematica) {
+	@Override
+	public void setoTematica(iTematica oTematica) {
 		this.oTematica = oTematica;
 	}
 
-	public Tarifa getoTarifa() {
+	@Override
+	public iTarifa getoTarifa() {
 		return oTarifa;
 	}
 
-	public void setoTarifa(Tarifa oTarifa) {
+	@Override
+	public void setoTarifa(iTarifa oTarifa) {
 		this.oTarifa = oTarifa;
 	}
 
+	@Override
 	public boolean validaJuego() {
 		boolean bExito = false;
 		if (this.Id_Juego < 0 && this.Nombre != null && oHorario != null && this.oTarifa != null

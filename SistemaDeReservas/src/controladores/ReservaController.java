@@ -7,17 +7,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Cliente;
-import models.Juego;
 import models.Reserva;
+import models.iCliente;
+import models.iJuego;
+import models.iReserva;
 
-public class ReservaController {
+public class ReservaController implements iReservaController {
 
 	// #########
 	// # CRUDS #
 	// #########
 
-	public int add(Reserva oReserva) {
+	@Override
+	public int add(iReserva oReserva) {
 		int iRes = 0;
 
 		if (oReserva.validaReserva()) {
@@ -34,7 +36,8 @@ public class ReservaController {
 		return iRes;
 	}
 
-	public int update(Reserva oReserva) {
+	@Override
+	public int update(iReserva oReserva) {
 		int iRes = 0;
 		if (oReserva.validaReserva()) {
 
@@ -48,7 +51,8 @@ public class ReservaController {
 		return iRes;
 	}
 
-	public int remove(Reserva oReserva) {
+	@Override
+	public int remove(iReserva oReserva) {
 		int iRes = 0;
 		if (oReserva.validaReserva()) {
 			String sql = "DELETE FROM Reserva WHERE Id_Reserva LIKE \"" + oReserva.getId_Reserva();
@@ -61,7 +65,8 @@ public class ReservaController {
 	// # QUERYS #
 	// ##########
 
-	public int existeReserva(Reserva oReserva) {
+	@Override
+	public int existeReserva(iReserva oReserva) {
 		int iRes = 0;
 		if (oReserva.validaReserva()) {
 			String sql = "SELECT COUNT(*) FROM Reserva WHERE Id_Reserva=\"" + oReserva.getId_Reserva();
@@ -70,7 +75,8 @@ public class ReservaController {
 		return iRes;
 	}
 
-	public List<Reserva> searchPorId_Reserva(Reserva oReserva) {
+	@Override
+	public List<Reserva> searchPorId_Reserva(iReserva oReserva) {
 
 		List<Reserva> lReserva = new ArrayList<Reserva>();
 		String sql = "SELECT * FROM Reserva WHERE Id_Reserva=" + oReserva.getId_Reserva();
@@ -82,8 +88,8 @@ public class ReservaController {
 			while (rs.next()) {
 				int Id_Reserva = rs.getInt(1);
 				String Horas = rs.getString(2);
-				Cliente DNI = (Cliente) rs.getObject(3);
-				Juego Id_Juego = (Juego) rs.getObject(4);
+				iCliente DNI = (iCliente) rs.getObject(3);
+				iJuego Id_Juego = (iJuego) rs.getObject(4);
 				lReserva.add(new Reserva(Id_Reserva, Horas, DNI, Id_Juego));
 			}
 			stm.close();

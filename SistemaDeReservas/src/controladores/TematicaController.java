@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Tematica;
+import models.iTematica;
 
-public class TematicaController {
+public class TematicaController implements iTematicaController {
 
     // #########
     // # CRUDS #
     // #########
  
-    public int add (Tematica oTematica) {
+    @Override
+	public int add (iTematica oTematica) {
 	int iRes = 0;
 
 	if (oTematica.validaTematica()) {
@@ -33,7 +35,8 @@ public class TematicaController {
     }
 	
     
-    public int update (Tematica oTematica) {
+    @Override
+	public int update (iTematica oTematica) {
 	int iRes = 0;
 	if (oTematica.validaTematica()) {
 
@@ -45,7 +48,8 @@ public class TematicaController {
 	return iRes;
     }
   
-    public int remove (Tematica oTematica) {
+    @Override
+	public int remove (iTematica oTematica) {
 	int iRes = 0;
 	if (oTematica.validaTematica()) {
 	    String sql = "DELETE FROM Tematica WHERE Id_Temat LIKE \"" + oTematica.getId_Temat();
@@ -58,7 +62,8 @@ public class TematicaController {
     // # QUERYS #
     // ##########
  
-    public int existeTematica (Tematica oTematica) {
+    @Override
+	public int existeTematica (iTematica oTematica) {
 	int iRes = 0;
 	if (oTematica.validaTematica()) {
 	    String sql = "SELECT COUNT(*) FROM Tematica WHERE Id_Temat=\"" + oTematica.getId_Temat();
@@ -66,7 +71,8 @@ public class TematicaController {
 	}
 	return iRes;
     }
-    public List<Tematica>  searchPorId_Temat (Tematica oTematica) {
+    @Override
+	public List<Tematica>  searchPorId_Temat (iTematica oTematica) {
 		
     	List<Tematica> lTematica = new ArrayList<Tematica>();	
     	String sql = "SELECT * FROM Tematica WHERE Id_Temat=" + oTematica.getId_Temat();

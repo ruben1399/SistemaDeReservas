@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import  models.Cliente;
+import models.iCliente;
 
-public class ClienteController{
+public class ClienteController implements iClienteController{
 
     // #########
     // # CRUDS #
     // #########
  
-    public int add (Cliente oCliente) {
+    @Override
+	public int add (iCliente oCliente) {
 	int iRes = 0;
 
 	if (oCliente.validaCliente()) {
@@ -35,7 +37,8 @@ public class ClienteController{
     }
 	
     
-    public int update (Cliente oCliente) {
+    @Override
+	public int update (iCliente oCliente) {
 	int iRes = 0;
 	if (oCliente.validaCliente()) {
 
@@ -50,7 +53,8 @@ public class ClienteController{
 	return iRes;
     }
   
-    public int remove (Cliente oCliente) {
+    @Override
+	public int remove (iCliente oCliente) {
 	int iRes = 0;
 	if (oCliente.validaCliente()) {
 	    String sql = "DELETE FROM Cliente WHERE DNI LIKE \"" + oCliente.getDNI();
@@ -63,7 +67,8 @@ public class ClienteController{
     // # QUERYS #
     // ##########
  
-    public int existeCliente (Cliente oCliente) {
+    @Override
+	public int existeCliente (iCliente oCliente) {
 	int iRes = 0;
 	if (oCliente.validaCliente()) {
 	    String sql = "SELECT COUNT(*) FROM Cliente WHERE DNI=\"" + oCliente.getDNI();;
@@ -71,7 +76,8 @@ public class ClienteController{
 	}
 	return iRes;
     }
-    public List<Cliente>  searchAddressesPorDNI (Cliente oCliente) {
+    @Override
+	public List<Cliente>  searchAddressesPorDNI (iCliente oCliente) {
 		
     	List<Cliente> lCliente = new ArrayList<Cliente>();	
     	String sql = "SELECT * FROM Cliente WHERE DNI=" + oCliente.getDNI();

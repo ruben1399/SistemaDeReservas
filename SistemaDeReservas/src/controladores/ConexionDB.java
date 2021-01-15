@@ -11,7 +11,7 @@ public class ConexionDB {
 	private String host = "localhost";
 	private String port = "3306";
 	private String user = "root";
-	private String password = "t4ghg7nwf";
+	private String password = "12345678910";
 	private String pattern = "jdbc:mysql://" + host + ":" + port + "/";
 	private static Connection connectionDb = null;
 

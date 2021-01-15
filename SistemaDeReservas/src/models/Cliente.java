@@ -1,6 +1,6 @@
 package models;
 
-public class Cliente {
+public class Cliente implements iCliente {
 	private String DNI;
 	private String Nombre;
 	private String Apellidos;
@@ -26,6 +26,7 @@ public class Cliente {
 		setDNI(dNI);
 	}
 
+	@Override
 	public String getDNI() {
 		return DNI;
 	}
@@ -39,10 +40,12 @@ public class Cliente {
 		return bExito;
 	}
 
+	@Override
 	public String getNombre() {
 		return Nombre;
 	}
 
+	@Override
 	public boolean setNombre(String nombre) {
 		boolean bExito = false;
 		if (nombre.length() <= 30 && nombre.length() > 0) {
@@ -53,10 +56,12 @@ public class Cliente {
 
 	}
 
+	@Override
 	public String getApellidos() {
 		return Apellidos;
 	}
 
+	@Override
 	public boolean setApellidos(String apellidos) {
 		boolean bExito = false;
 		if (apellidos.length() <= 30 && apellidos.length() > 0) {
@@ -67,10 +72,12 @@ public class Cliente {
 
 	}
 
+	@Override
 	public int getTelefono() {
 		return Telefono;
 	}
 
+	@Override
 	public boolean setTelefono(int telefono) {
 		boolean bExito = false;
 		if (telefono == 9) {
@@ -81,10 +88,12 @@ public class Cliente {
 
 	}
 
+	@Override
 	public String getEmail() {
 		return email;
 	}
 
+	@Override
 	public boolean setEmail(String email) {
 		boolean bExito = false;
 		if (email.length() <= 40 && email.length() >= 10) {
@@ -113,6 +122,7 @@ public class Cliente {
 		return bExito;
 	}
 
+	@Override
 	public boolean validaCliente() {
 		boolean bExito = false;
 		if (this.DNI != null && this.Nombre != null && this.Apellidos != null && this.email != null) {

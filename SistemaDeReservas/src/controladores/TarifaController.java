@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Tarifa;
+import models.iTarifa;
 
-public class TarifaController {
+public class TarifaController implements iTarifaController {
 
     // #########
     // # CRUDS #
     // #########
  
-    public int add (Tarifa oTarifa) {
+    @Override
+	public int add (iTarifa oTarifa) {
 	int iRes = 0;
 
 	if (oTarifa.validaTarifa()) {
@@ -32,7 +34,8 @@ public class TarifaController {
     }
 	
     
-    public int update (Tarifa oTarifa) {
+    @Override
+	public int update (iTarifa oTarifa) {
 	int iRes = 0;
 	if (oTarifa.validaTarifa()) {
 
@@ -44,7 +47,8 @@ public class TarifaController {
 	return iRes;
     }
   
-    public int remove (Tarifa oTarifa) {
+    @Override
+	public int remove (iTarifa oTarifa) {
 	int iRes = 0;
 	if (oTarifa.validaTarifa()) {
 	    String sql = "DELETE FROM Tarifa WHERE Id_Tarifa LIKE \"" + oTarifa.getId_Tarifa();
@@ -57,7 +61,8 @@ public class TarifaController {
     // # QUERYS #
     // ##########
  
-    public int existeTarifa (Tarifa oTarifa) {
+    @Override
+	public int existeTarifa (iTarifa oTarifa) {
 	int iRes = 0;
 	if (oTarifa.validaTarifa()) {
 	    String sql = "SELECT COUNT(*) FROM Tarifa WHERE Id_Tarifa=\"" + oTarifa.getId_Tarifa();
@@ -65,7 +70,8 @@ public class TarifaController {
 	}
 	return iRes;
     }
-    public List<Tarifa>  searchPorId_Tarifa (Tarifa oTarifa) {
+    @Override
+	public List<Tarifa>  searchPorId_Tarifa (iTarifa oTarifa) {
 		
     	List<Tarifa> lTarifa = new ArrayList<Tarifa>();	
     	String sql = "SELECT * FROM Tarifa WHERE Id_Tarifa=" + oTarifa.getId_Tarifa();

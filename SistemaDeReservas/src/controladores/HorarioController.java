@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import models.Horario;
+import models.iHorario;
 
-public class HorarioController {
+public class HorarioController implements iHorarioController {
 
     // #########
     // # CRUDS #
     // #########
  
-    public int add (Horario oHorario) {
+    @Override
+	public int add (iHorario oHorario) {
 	int iRes = 0;
 
 	if (oHorario.validaHorario()) {
@@ -32,7 +34,8 @@ public class HorarioController {
     }
 	
     
-    public int update (Horario oHorario) {
+    @Override
+	public int update (iHorario oHorario) {
 	int iRes = 0;
 	if (oHorario.validaHorario()) {
 
@@ -44,7 +47,8 @@ public class HorarioController {
 	return iRes;
     }
   
-    public int remove (Horario oHorario) {
+    @Override
+	public int remove (iHorario oHorario) {
 	int iRes = 0;
 	if (oHorario.validaHorario()) {
 	    String sql = "DELETE FROM Horario WHERE Id_Horario LIKE \"" + oHorario.getId_Horario();
@@ -57,7 +61,8 @@ public class HorarioController {
     // # QUERYS #
     // ##########
  
-    public int existeHorario (Horario oHorario) {
+    @Override
+	public int existeHorario (iHorario oHorario) {
 	int iRes = 0;
 	if (oHorario.validaHorario()) {
 	    String sql = "SELECT COUNT(*) FROM Horario WHERE Id_Horario=\"" + oHorario.getId_Horario();
@@ -65,7 +70,8 @@ public class HorarioController {
 	}
 	return iRes;
     }
-    public List<Horario>  searchPorId_Horario (Horario oHorario) {
+    @Override
+	public List<Horario>  searchPorId_Horario (iHorario oHorario) {
 		
     	List<Horario> lHorario = new ArrayList<Horario>();	
     	String sql = "SELECT * FROM Horario WHERE Id_Horario=" + oHorario.getId_Horario();
