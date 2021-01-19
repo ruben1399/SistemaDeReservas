@@ -1,3 +1,4 @@
+<%@page import="controladores.ConexionDB"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -60,6 +61,16 @@
 
 		<input type="submit" name="Enviar" value="Enviar">
 	</form>
+	
+	<%
+	ConexionDB BBDD= new ConexionDB("escaperoom");
+	if(BBDD.checkConnectionDatabase()){
+		out.write("Conectado correctamente a la base de datos");
+	} else {
+		out.write("Pa tu casa");
+	}
+	
+	%>
 
 </body>
 </html>
