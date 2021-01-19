@@ -10,21 +10,24 @@
 </head>
 <body>
 	<form action="FormController" method="POST">
-		<label>DNI:</label> <input type="text" name="sDNI"
-			placeholder="20932847J" id="DNI" required> <label>Nombre:</label>
-		<input type="text" name="sNombre" placeholder="Pon tu nombre"
-			id="Nombre" required> <label>Apellidos:</label> <input
-			type="text" name="sApellidos" placeholder="Pon tus Apellidos"
-			id="Apellidos" required> <label>Numero de telefono:</label> <input
-			type="number" name="iTelefono" placeholder="Pon tu telefono"
-			id="nTelefono" required> <label>E-mail:</label> <input
-			type="text" name="sEmail" placeholder="Pon tu Email" id="email"
-			required> <label>Seleciona que Sala quieres Jugar:</label> <select
+		<div>
+			<label>DNI:</label> <input type="text" name="sDNI"
+				placeholder="20932847J" id="DNI" required> <label>Nombre:</label>
+			<input type="text" name="sNombre" placeholder="Pon tu nombre"
+				id="Nombre" required> <label>Apellidos:</label> <input
+				type="text" name="sApellidos" placeholder="Pon tus Apellidos"
+				id="Apellidos" required> <label>Numero de telefono:</label>
+			<input type="number" name="iTelefono" placeholder="Pon tu telefono"
+				id="nTelefono" required> <label>E-mail:</label> <input
+				type="text" name="sEmail" placeholder="Pon tu Email" id="email"
+				required>
+		</div>
+		<br> <label>Seleciona que Sala quieres Jugar:</label> <select
 			name="select">
 			<option value="Selecione" selected>Selecione</option>
 			<option value="Tutankamon">Los Secretos del Faraón
 				Tutankamón</option>
-			<option value="Colon">El descubrimiento de Cristobal Colón</option>
+			<option value="Colon">sEl descubrimiento de Cristobal Colón</option>
 			<option value="Castillo">El Castillo de Ricardo Corazón de
 				León</option>
 			<option value="Steampunk">Steampunk, El futuro</option>
@@ -39,9 +42,9 @@
 			<option value="18:45">18:45</option>
 			<option value="20:30">20:30</option>
 			<option value="22:15">22:15</option>
-		</select>
-
+		</select> 
 		<div>
+		<br>
 			<label>¿Cuantos participantes sois?: </label>
 			<div>
 				<input type="radio" name="checkTrabajo" value="50"> <label>De
@@ -54,7 +57,8 @@
 		</div>
 
 
-		<input type="submit" name="Enviar">
+
+		<input type="submit" name="Enviar" value="Enviar">
 	</form>
 
 </body>
